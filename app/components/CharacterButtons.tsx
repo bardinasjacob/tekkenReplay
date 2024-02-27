@@ -52,7 +52,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("king")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("king") != -1 ? 'selected' : ''}
         >
             King
         </Button>
@@ -60,7 +60,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("jun")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("jun") != -1 ? 'selected' : ''}
         >
             Jun
         </Button>
@@ -68,7 +68,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("paul")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("paul") != -1 ? 'selected' : ''}
         >
             Paul
         </Button>
@@ -76,7 +76,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("law")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("law") != -1 ? 'selected' : ''}
         >
             Law
         </Button>
@@ -84,7 +84,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("jack")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("jack") != -1 ? 'selected' : ''}
         >
             Jack-8
         </Button>
@@ -92,7 +92,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("lars")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("lars") != -1 ? 'selected' : ''}
         >
             Lars
         </Button>
@@ -100,7 +100,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("xiao")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("xiao") != -1 ? 'selected' : ''}
         >
             Xiaoyu
         </Button>
@@ -108,7 +108,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("nina")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("nina") != -1 ? 'selected' : ''}
         >
             Nina
         </Button>
@@ -116,7 +116,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("leroy")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("leroy") != -1 ? 'selected' : ''}
         >
             Leroy
         </Button>
@@ -124,7 +124,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("asuka")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("asuka") != -1 ? 'selected' : ''}
         >
             Asuka
         </Button>
@@ -132,7 +132,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("lili")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("lili") != -1 ? 'selected' : ''}
         >
             Lili
         </Button>
@@ -140,7 +140,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("bryan")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("bryan") != -1 ? 'selected' : ''}
         >
             Bryan
         </Button>
@@ -148,7 +148,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("hwoarang")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("hwoarang") != -1 ? 'selected' : ''}
         >
             Hwoarang
         </Button>
@@ -156,15 +156,15 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("claudio")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("claudio") != -1 ? 'selected' : ''}
         >
             Claudio
         </Button>
 
         <Button
         color="primary"
-        onClick={() => handleClick("azu")}
-        className={clicked ? 'selected' : ''}
+        onClick={() => handleClick("azucena")}
+        className={clicked.indexOf("azucena") != -1 ? 'selected' : ''}
         >
             Azucena
         </Button>
@@ -172,7 +172,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("raven")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("raven") != -1 ? 'selected' : ''}
         >
             Raven
         </Button>
@@ -180,7 +180,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("leo")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("leo") != -1 ? 'selected' : ''}
         >
             Leo
         </Button>
@@ -188,7 +188,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("steve")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("steve") != -1 ? 'selected' : ''}
         >
             Steve
         </Button>
@@ -196,7 +196,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("kuma")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("kuma") != -1 ? 'selected' : ''}
         >
             Kuma
         </Button>
@@ -204,7 +204,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("yoshi")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("yoshi") != -1 ? 'selected' : ''}
         >
             Yoshimitsu
         </Button>
@@ -212,7 +212,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("shaheen")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("shaheen") != -1 ? 'selected' : ''}
         >
             Shaheen
         </Button>
@@ -220,7 +220,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("drag")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("drag") != -1 ? 'selected' : ''}
         >
             Dragunov
         </Button>
@@ -228,7 +228,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("feng")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("feng") != -1 ? 'selected' : ''}
         >
             Feng
         </Button>
@@ -236,7 +236,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("panda")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("panda") != -1 ? 'selected' : ''}
         >
             Panda
         </Button>
@@ -244,7 +244,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("lee")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("lee") != -1 ? 'selected' : ''}
         >
             Lee
         </Button>
@@ -252,7 +252,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("alisa")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("alisa") != -1 ? 'selected' : ''}
         >
             Alisa
         </Button>
@@ -260,7 +260,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("zafina")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("zafina") != -1 ? 'selected' : ''}
         >
             Zafina
         </Button>
@@ -268,7 +268,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("devilJin")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("devilJin") != -1 ? 'selected' : ''}
         >
             Devil Jin
         </Button>
@@ -276,7 +276,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("victor")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("victor") != -1 ? 'selected' : ''}
         >
             Victor
         </Button>
@@ -284,7 +284,7 @@ export default function CharacterButtons() {
         <Button
         color="primary"
         onClick={() => handleClick("reina")}
-        className={clicked ? 'selected' : ''}
+        className={clicked.indexOf("reina") != -1 ? 'selected' : ''}
         id="reina"
         >
             Reina
