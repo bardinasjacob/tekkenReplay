@@ -2,19 +2,23 @@
 import Image from "next/image";
 import Button from '@mui/joy/Button';
 import React, {useRef, useState} from "react";
+import ReplayScroll from "./ReplayScroll";
 
 
 
 export default function CharacterButtons() {
   const[clicked, setClicked] = useState<string[]>([]);
-  
-
   const handleClick = (element: string) => {
-    if(clicked.indexOf(element) === -1){
-      setClicked([...clicked, element]);
+    if(clicked.length < 2){
+        if(clicked.indexOf(element) === -1){
+            setClicked([...clicked, element]);
+          }
+          else{
+            removeItem(element)
+          }
     }
-    else{
-      removeItem(element)
+    if(clicked.indexOf(element) != -1){
+        removeItem(element)
     }
   }
 
@@ -25,14 +29,8 @@ export default function CharacterButtons() {
   };
 
   return (
-      <div className="flex">
-        <ul>
-        {clicked.map((item, index) => (
-          <li key={index} className=" bg-white">
-            {item}
-          </li>
-        ))}
-      </ul>
+      <>
+        <div className="flex w-full flex-wrap justify-evenly">
         <Button
         color="primary"
         onClick={() => handleClick("kaz")}
@@ -289,6 +287,8 @@ export default function CharacterButtons() {
         >
             Reina
         </Button>
-      </div>
+        </div>
+        <ReplayScroll charArray={clicked}/>
+      </>
   );
 }

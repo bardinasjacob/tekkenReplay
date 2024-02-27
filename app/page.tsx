@@ -2,13 +2,15 @@ import Image from "next/image";
 import Button from '@mui/joy/Button';
 import React, {useState} from "react";
 import CharacterButtons from "./components/CharacterButtons";
+import Navigation from "./components/Navigation";
 
 
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
+    <main className="w-full">
+      <div className="m-auto w-1/2 space-y-28 mt-9">
+        <Navigation/>
         <CharacterButtons/>
       </div>
     </main>
