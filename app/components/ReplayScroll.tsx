@@ -4,12 +4,11 @@ import React, { useRef, useState } from "react";
 
 export default async function ReplayScroll(props: { charArray: string[] }) {
 
+  //fetches correct data but parses it wrong ("http://localhost:3000/api/") leads to correct json
+  //fix this method
   const getMatches = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/",
-        {
-          method: "GET"
-        })
+      const res = await fetch("http://localhost:3000/api/")
       return res.json();
     } catch (error){
       console.log("Something messed up oops", error)
@@ -18,7 +17,6 @@ export default async function ReplayScroll(props: { charArray: string[] }) {
 
   const {matches} = await getMatches();
   const array = matches
-  console.log(matches)
 
   return (
     <>

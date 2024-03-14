@@ -13,7 +13,8 @@ const matchSchema = new Schema({
     p2Char: String,
     winner: String,
     youtubeLink: String,
-})
+},
+{ collection: "matchReplays"})
 
-const Match = mongoose.models.Match || mongoose.model("Match", matchSchema)
+const Match = mongoose.models.matchReplays || mongoose.model("matchReplays", matchSchema)
 export default Match

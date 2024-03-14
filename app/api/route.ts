@@ -1,10 +1,10 @@
 import Match from "../(records)/Match";
 import { NextResponse } from "next/server";
 
-export async function POST(req){
+export async function POST(req: Request){
     try{
         const body = await req.json()
-        const tableData = body.formData
+        const matchData = body.formData
         await Match.create(matchData)
         return NextResponse.json({message: "Match created"}, {status: 201})
     }
@@ -13,9 +13,10 @@ export async function POST(req){
     }
 }
 
-export async function GET(req){
+export async function GET(req: Request){
     try{
         const matches = await Match.find();
+        console.log(matches)
         return NextResponse.json({ matches }, {status: 200})
     }
     catch(error){
