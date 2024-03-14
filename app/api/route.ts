@@ -16,7 +16,6 @@ export async function POST(req: Request){
 export async function GET(req: Request){
     try{
         const matches = await Match.find();
-        console.log(matches)
         return NextResponse.json({ matches }, {status: 200})
     }
     catch(error){

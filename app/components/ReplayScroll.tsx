@@ -8,24 +8,22 @@ export default async function ReplayScroll(props: { charArray: string[] }) {
   //fix this method
   const getMatches = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/")
-      return res.json();
+      const res = await fetch("http://localhost:3000/api", {
+        method: "GET"
+      })
+      const body = res.json();
+      return body
     } catch (error){
       console.log("Something messed up oops", error)
     }
   }
 
-  const {matches} = await getMatches();
-  const array = matches
+  const { matches } = await getMatches();
 
   return (
     <>
       <p>
-        {array.map((item: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined, index: React.Key | null | undefined) => (
-              <p key={index} className="">
-                {item}
-              </p>
-          ))}
+        {JSON.stringify(matches)}
       </p>
       {/* <ul></ul>
       <Table color="primary" size="lg">
