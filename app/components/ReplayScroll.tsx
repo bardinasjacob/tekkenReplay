@@ -7,7 +7,8 @@ export default async function ReplayScroll(props: { charArray: string[] }) {
   const getMatches = async () => {
     try {
       const res = await fetch("http://localhost:3000/api", {
-        method: "GET"
+        method: "GET",
+        next: {revalidate: 60}
       })
       const body = res.json();
       return body
