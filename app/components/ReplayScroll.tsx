@@ -2,10 +2,30 @@ import Table from "@mui/joy/Table/Table";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 
-export default function ReplayScroll(props: { charArray: string[] }) {
+export default async function ReplayScroll(props: { charArray: string[] }) {
+
+  const getMatches = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/api")
+      return res.json();
+    } catch (error){
+      console.log("Something messed up oops", error)
+    }
+  }
+
+  const {matches} = await getMatches();
+  const array = matches
+
   return (
     <>
-      <ul></ul>
+      <p>
+        {array.map((item: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined, index: React.Key | null | undefined) => (
+              <p key={index} className="">
+                {item}
+              </p>
+          ))}
+      </p>
+      {/* <ul></ul>
       <Table color="primary" size="lg">
         <thead>
           <tr>
@@ -22,7 +42,7 @@ export default function ReplayScroll(props: { charArray: string[] }) {
           ))}
         </tr>
         </tbody>
-      </Table>
+      </Table> */}
     </>
   );
 }

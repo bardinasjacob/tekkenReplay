@@ -15,10 +15,8 @@ export async function POST(req){
 
 export async function GET(req){
     try{
-        const body = await req.json()
-        const tableData = body.formData
-        await Match.create(matchData)
-        return NextResponse.json({message: "Match created"}, {status: 201})
+        const matches = await Match.find();
+        return NextResponse.json({ matches }, {status: 200})
     }
     catch(error){
         return NextResponse.json({message: "Error", error}, {status: 500})

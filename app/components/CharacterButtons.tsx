@@ -288,7 +288,6 @@ export default function CharacterButtons() {
             Reina
         </Button>
         </div>
-        <ReplayScroll charArray={clicked}/>
       </>
   );
 }
