@@ -6,7 +6,10 @@ export default async function ReplayScroll(props: { charArray: string[] }) {
 
   const getMatches = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api")
+      const res = await fetch("http://localhost:3000/api/",
+        {
+          method: "GET"
+        })
       return res.json();
     } catch (error){
       console.log("Something messed up oops", error)
@@ -15,6 +18,7 @@ export default async function ReplayScroll(props: { charArray: string[] }) {
 
   const {matches} = await getMatches();
   const array = matches
+  console.log(matches)
 
   return (
     <>
