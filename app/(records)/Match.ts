@@ -1,7 +1,15 @@
 import { ObjectId } from "mongodb";
 import mongoose, { Schema, mongo } from "mongoose";
 
-mongoose.connect(process.env.SERVER_URI, {dbName: 'tekken8'});
+interface Env {
+    DATABASE_STRING: string;
+}
+
+const environment: Env = {
+    DATABASE_STRING: process.env.SERVER_URI || ''
+}
+
+mongoose.connect(environment.DATABASE_STRING, {dbName: 'tekken8'});
 mongoose.Promise = global.Promise;
 
 

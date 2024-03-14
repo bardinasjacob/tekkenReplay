@@ -4,8 +4,6 @@ import React, { useRef, useState } from "react";
 
 export default async function ReplayScroll(props: { charArray: string[] }) {
 
-  //fetches correct data but parses it wrong ("http://localhost:3000/api/") leads to correct json
-  //fix this method
   const getMatches = async () => {
     try {
       const res = await fetch("http://localhost:3000/api", {
@@ -22,7 +20,7 @@ export default async function ReplayScroll(props: { charArray: string[] }) {
 
   return (
     <>
-      <p>
+      <p className=" bg-white">
         {JSON.stringify(matches)}
       </p>
       {/* <ul></ul>
