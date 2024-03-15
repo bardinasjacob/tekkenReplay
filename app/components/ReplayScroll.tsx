@@ -3,7 +3,7 @@ import Table from "@mui/joy/Table/Table";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
-export default function ReplayScroll(props: { charArray: string[] }) {
+function ReplayScroll(props: { charArray: string[] }) {
 
   const [data, setData] = useState(null)
 
@@ -16,23 +16,7 @@ export default function ReplayScroll(props: { charArray: string[] }) {
       .then((data) => {
         setData(data)
       })
-
   })
-
-  const getMatches = async () => {
-    try {
-      const res = await fetch("http://localhost:3000/api", {
-        method: "GET",
-        next: {revalidate: 60}
-      })
-      const body = res.json();
-      return body
-    } catch (error){
-      console.log("Something messed up oops", error)
-    }
-  }
-
-  //const { matches } = await getMatches();
 
   return (
     <>
@@ -61,3 +45,7 @@ export default function ReplayScroll(props: { charArray: string[] }) {
     </>
   );
 }
+
+const MemoizedReplay = React.memo(ReplayScroll)
+
+export default MemoizedReplay
