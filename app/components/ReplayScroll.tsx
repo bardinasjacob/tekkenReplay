@@ -1,3 +1,4 @@
+"use client"
 import Table from "@mui/joy/Table/Table";
 import Link from "next/link";
 import React, { useRef, useState } from "react";

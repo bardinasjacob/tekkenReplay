@@ -15,9 +15,6 @@ export default function Home() {
         <Navigation/>
         <CharacterButtons/>
       </div>
-      <div className="m-auto w-full">
-        <ReplayScroll charArray={[]}/>
-      </div>
     </main>
   );
 }
