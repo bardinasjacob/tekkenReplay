@@ -1,4 +1,3 @@
-"use client"
 import Table from "@mui/joy/Table/Table";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
@@ -14,10 +13,11 @@ function ReplayScroll(props: { charArray: string[] }) {
       })
       .then((res) => res.json())
       .then((data) => {
-        setData(data)
+        setData(data.matches)
       })
   })
-
+  
+  
   return (
     <>
       <p className=" bg-white">
