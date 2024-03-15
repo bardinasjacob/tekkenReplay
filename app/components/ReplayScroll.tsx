@@ -1,9 +1,23 @@
 "use client"
 import Table from "@mui/joy/Table/Table";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-export default async function ReplayScroll(props: { charArray: string[] }) {
+export default function ReplayScroll(props: { charArray: string[] }) {
+
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api", {
+        method: "GET",
+        next: {revalidate: 60}
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data)
+      })
+
+  })
 
   const getMatches = async () => {
     try {
@@ -18,12 +32,13 @@ export default async function ReplayScroll(props: { charArray: string[] }) {
     }
   }
 
-  const { matches } = await getMatches();
+  //const { matches } = await getMatches();
 
   return (
     <>
       <p className=" bg-white">
-        {JSON.stringify(matches)}
+        {JSON.stringify(data)}
+        {props.charArray}
       </p>
       {/* <ul></ul>
       <Table color="primary" size="lg">
