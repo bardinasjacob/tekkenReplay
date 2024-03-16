@@ -1,21 +1,25 @@
 import Table from "@mui/joy/Table/Table";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import useSWR, { Fetcher } from "swr";
 
 function ReplayScroll(props: { charArray: string[] }) {
 
-  const [data, setData] = useState(null)
 
-  useEffect(() => {
-    fetch("http://localhost:3000/api", {
-        method: "GET",
-        next: {revalidate: 60}
-      })
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data.matches)
-      })
-  })
+  const queryString = '?p1Char=' + props.charArray[0] + '&p2Char=' + props.charArray[1]
+
+  function fetcher(url: string){
+    return fetch('http://localhost:3000/api' + queryString).then(res => res.json())
+  }
+
+  const { data } = useSWR('http://localhost:3000/api' + queryString, fetcher)
+
+  try{
+    console.log(data)
+  }
+  catch(error){
+    console.log('oops')
+  }
   
   
   return (

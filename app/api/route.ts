@@ -14,8 +14,12 @@ export async function POST(req: Request){
 }
 
 export async function GET(req: Request){
+
     try{
+        const url = new URL(req.url)
+        const params = new URLSearchParams(url.searchParams)
         const matches = await Match.find();
+        console.log(params.get('p1Char'))
         return NextResponse.json({ matches }, {status: 200})
     }
     catch(error){
