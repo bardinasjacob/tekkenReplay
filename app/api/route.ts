@@ -18,7 +18,7 @@ export async function GET(req: Request){
     try{
         const url = new URL(req.url)
         const params = new URLSearchParams(url.searchParams)
-        const matches = await Match.find();
+        const matches = await Match.find({p1Char: params.get('p1Char')});
         console.log(params.get('p1Char'))
         return NextResponse.json({ matches }, {status: 200})
     }

@@ -14,8 +14,10 @@ function ReplayScroll(props: { charArray: string[] }) {
 
   const { data } = useSWR('http://localhost:3000/api' + queryString, fetcher)
 
+  var matches
+
   try{
-    console.log(data)
+    var matches = data.matches
   }
   catch(error){
     console.log('oops')
@@ -25,7 +27,7 @@ function ReplayScroll(props: { charArray: string[] }) {
   return (
     <>
       <p className=" bg-white">
-        {JSON.stringify(data)}
+        {JSON.stringify(matches)}
         {props.charArray}
       </p>
       {/* <ul></ul>
