@@ -4,10 +4,8 @@ import Button from '@mui/joy/Button';
 import React, {useRef, useState} from "react";
 import ReplayScroll from "./ReplayScroll";
 
-
-
-export default function CharacterButtons() {
-  const[clicked, setClicked] = useState<string[]>([]);
+function CharacterButtons(){
+    const[clicked, setClicked] = useState<string[]>([]);
   const handleClick = (element: string) => {
     if(clicked.length < 2){
         if(clicked.indexOf(element) === -1){
@@ -288,7 +286,14 @@ export default function CharacterButtons() {
             Reina
         </Button>
         </div>
+    <div>
         <ReplayScroll charArray={clicked}/>
+   </div>
       </>
   );
+
 }
+
+const MemoizedButtons = React.memo(CharacterButtons)
+
+export default MemoizedButtons;

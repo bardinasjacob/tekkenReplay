@@ -1,11 +1,36 @@
 import Table from "@mui/joy/Table/Table";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import useSWR, { Fetcher } from "swr";
 
-export default function ReplayScroll(props: { charArray: string[] }) {
+function ReplayScroll(props: { charArray: string[] }) {
+
+
+  const queryString = '?p1Char=' + props.charArray[0] + '&p2Char=' + props.charArray[1]
+
+  function fetcher(url: string){
+    return fetch('http://localhost:3000/api' + queryString).then(res => res.json())
+  }
+
+  const { data } = useSWR('http://localhost:3000/api' + queryString, fetcher)
+
+  var matches
+
+  try{
+    var matches = data.matches
+  }
+  catch(error){
+    console.log('oops')
+  }
+  
+  
   return (
     <>
-      <ul></ul>
+      <p className=" bg-white">
+        {JSON.stringify(matches)}
+        {props.charArray}
+      </p>
+      {/* <ul></ul>
       <Table color="primary" size="lg">
         <thead>
           <tr>
@@ -22,7 +47,11 @@ export default function ReplayScroll(props: { charArray: string[] }) {
           ))}
         </tr>
         </tbody>
-      </Table>
+      </Table> */}
     </>
   );
 }
+
+const MemoizedReplay = React.memo(ReplayScroll)
+
+export default MemoizedReplay
