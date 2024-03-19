@@ -12,7 +12,7 @@ function ReplayScroll(props: { charArray: string[] }) {
     return fetch('../api' + queryString).then(res => res.json())
   }
 
-  const { data } = useSWR('http://localhost:3000/api' + queryString, fetcher)
+  const { data } = useSWR('../api' + queryString, fetcher)
 
   var matches
 
