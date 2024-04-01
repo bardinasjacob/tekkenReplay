@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 
 function CharacterButtons() {
-  var selected: string[] = [];
+  var selected: string[] = ["Mokujin", "Mokujin"];
   const [drops, setDrops] = useState<{ [key: string]: string }>({});
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -35,6 +35,7 @@ function CharacterButtons() {
           name={`drop${buttonNum}`}
           onChange={handleChange}
         >
+          <MenuItem value={"undefined"}>Any</MenuItem>
           <MenuItem value={"Dragunov"}>Dragunov</MenuItem>
           <MenuItem value={"Kazuya"}>Kazuya</MenuItem>
           <MenuItem value={"BeepBoop"}>Thirty</MenuItem>
@@ -52,7 +53,7 @@ function CharacterButtons() {
         <div className="w-1/3">
           <Stack>
             <div className="w-full relative h-52">
-            <Image src={`/${selected[0]}`} alt={""}
+            <Image src={`/${selected[0]}.png`} alt={""}
              fill={true}/>
             </div>
             {createButton(1)}
@@ -64,7 +65,7 @@ function CharacterButtons() {
         <div className="w-1/3">
         <Stack>
             <div className="w-full relative h-52">
-            <Image src={`/${selected[0]}`} alt={""}
+            <Image src={`/${selected[1]}.png`} alt={""}
              fill={true}/>
             </div>
             {createButton(2)}
