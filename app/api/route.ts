@@ -18,8 +18,16 @@ export async function GET(req: Request){
     try{
         const url = new URL(req.url)
         const params = new URLSearchParams(url.searchParams)
-        const matches = await Match.find({p1Char: params.get('p1Char'), p2Char: params.get('p2Char')});
-        console.log(params.get('p1Char'))
+        const p1Char = params.get('p1Char');
+        const p2Char = params.get('p2Char');
+        const matches = await Match.find({
+            $or: [
+                { p1Char: p1Char, p2Char: p2Char },
+                { p1Char: p2Char, p2Char: p1Char },
+                { p1Char: p1Char, p2Char: 'undefined' }
+            ]
+        });
+        console.log(p2Char)
         return NextResponse.json({ matches }, {status: 200})
     }
     catch(error){

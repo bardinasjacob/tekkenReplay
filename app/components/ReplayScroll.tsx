@@ -19,19 +19,17 @@ function ReplayScroll(props: { charArray: string[] }) {
 
   try{
     matches = data.matches
-    console.log(matches)
     
   }
   catch(error){
-    console.log('oops')
   }
 
   const columns = [
     { field: 'p1Name', headerName: 'Player 1 Name', width: 200 },
     { field: 'p1Char', headerName: 'Player 1 Char', width: 200 },
-    { field: 'winner', headerName: 'Winning Character', width: 200 },
     { field: 'p2Name', headerName: 'Player 2 Name', width: 200 },
     { field: 'p2Char', headerName: 'Player 2 Char', width: 200 },
+    { field: 'winner', headerName: 'Winning Character', width: 200 },
     { field: 'youtubeLink', headerName: 'youtubeLink', width: 600 },
   ];
 
