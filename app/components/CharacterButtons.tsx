@@ -9,6 +9,7 @@ import {
   MenuItem,
   Select,
   SelectChangeEvent,
+  Stack,
 } from "@mui/material";
 
 function CharacterButtons() {
@@ -34,8 +35,8 @@ function CharacterButtons() {
           name={`drop${buttonNum}`}
           onChange={handleChange}
         >
-          <MenuItem value={"King"}>King</MenuItem>
-          <MenuItem value={"Blabla"}>Twenty</MenuItem>
+          <MenuItem value={"Dragunov"}>Dragunov</MenuItem>
+          <MenuItem value={"Kazuya"}>Kazuya</MenuItem>
           <MenuItem value={"BeepBoop"}>Thirty</MenuItem>
         </Select>
       </FormControl>
@@ -47,9 +48,28 @@ function CharacterButtons() {
 
   return (
     <>
-      <div className="flex w-full flex-wrap justify-evenly">
-        {createButton(1)}
-        {createButton(2)}
+      <div className="flex w-full flex-wrap justify-between">
+        <div className="w-1/3">
+          <Stack>
+            <div className="w-full relative h-52">
+            <Image src={`/${selected[0]}`} alt={""}
+             fill={true}/>
+            </div>
+            {createButton(1)}
+          </Stack>
+        </div>
+        <div className="text-white text-center my-auto w-1/3">
+          <h1>VS</h1>
+        </div>
+        <div className="w-1/3">
+        <Stack>
+            <div className="w-full relative h-52">
+            <Image src={`/${selected[0]}`} alt={""}
+             fill={true}/>
+            </div>
+            {createButton(2)}
+          </Stack>
+        </div>
       </div>
       <div>
         <ReplayScroll charArray={selected} />
