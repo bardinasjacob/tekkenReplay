@@ -1,4 +1,4 @@
-import Table from "@mui/joy/Table/Table";
+import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import useSWR, { Fetcher } from "swr";
@@ -13,41 +13,53 @@ function ReplayScroll(props: { charArray: string[] }) {
   }
 
   const { data } = useSWR('../api' + queryString, fetcher)
-
-  var matches
+  
+  //Using a dummy ID for the table to refrence in case the server call fails
+  var matches = [{_id: -1}];
 
   try{
-    var matches = data.matches
+    matches = data.matches
+    
   }
   catch(error){
-    console.log('oops')
+  }
+
+  const columns = [
+    { field: 'p1Name', headerName: 'Player 1 Name', width: 200 },
+    { field: 'p1Char', headerName: 'Player 1 Char', width: 200 },
+    { field: 'p2Name', headerName: 'Player 2 Name', width: 200 },
+    { field: 'p2Char', headerName: 'Player 2 Char', width: 200 },
+    { field: 'winner', headerName: 'Winning Character', width: 200 },
+    { field: 'youtubeLink', headerName: 'Video Link', width: 600, 
+      renderCell: (params: GridRenderCellParams<any, String>) => (
+        <Link href={`${params.value}`}>
+          {`${params.value}`}
+        </Link>
+      )},
+  ];
+
+  function getRowId(matches: any) {
+    return matches._id;
   }
   
   
   return (
     <>
-      <p className=" bg-white">
-        {JSON.stringify(matches)}
-        {props.charArray}
+      <p className=" bg-white h-80">
+      <DataGrid
+        getRowId={getRowId}
+        rows={matches}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: {
+              pageSize: 5,
+            },
+          },
+        }}
+        pageSizeOptions={[5]}
+      />
       </p>
-      {/* <ul></ul>
-      <Table color="primary" size="lg">
-        <thead>
-          <tr>
-            <th style={{ width: "50%" }}>Player 1</th>
-            <th>Player 2</th>
-          </tr>
-        </thead>
-        <tbody>
-        <tr>
-          {props.charArray.map((item, index) => (
-              <td key={index} className="">
-                {item}
-              </td>
-          ))}
-        </tr>
-        </tbody>
-      </Table> */}
     </>
   );
 }
