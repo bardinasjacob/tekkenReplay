@@ -24,7 +24,6 @@ export async function GET(req: Request){
             $or: [
                 { p1Char: p1Char, p2Char: p2Char },
                 { p1Char: p2Char, p2Char: p1Char },
-                { p1Char: p1Char, p2Char: 'undefined' }
             ]
         });
         console.log(p2Char)

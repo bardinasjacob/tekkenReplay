@@ -1,4 +1,5 @@
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
+import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import useSWR, { Fetcher } from "swr";
 
@@ -12,7 +13,6 @@ function ReplayScroll(props: { charArray: string[] }) {
   }
 
   const { data } = useSWR('../api' + queryString, fetcher)
-  console.log(data)
   
   //Using a dummy ID for the table to refrence in case the server call fails
   var matches = [{_id: -1}];
@@ -30,7 +30,10 @@ function ReplayScroll(props: { charArray: string[] }) {
     { field: 'p2Name', headerName: 'Player 2 Name', width: 200 },
     { field: 'p2Char', headerName: 'Player 2 Char', width: 200 },
     { field: 'winner', headerName: 'Winning Character', width: 200 },
-    { field: 'youtubeLink', headerName: 'youtubeLink', width: 600 },
+    { field: 'youtubeLink', headerName: 'Video Link', width: 600, 
+      renderCell: (params: GridRenderCellParams<any, String>) => (
+        <Link href={`${params.value}`}>{`${params.value}`}</Link>
+      )},
   ];
 
   function getRowId(matches: any) {
