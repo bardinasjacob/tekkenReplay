@@ -32,7 +32,9 @@ function ReplayScroll(props: { charArray: string[] }) {
     { field: 'winner', headerName: 'Winning Character', width: 200 },
     { field: 'youtubeLink', headerName: 'Video Link', width: 600, 
       renderCell: (params: GridRenderCellParams<any, String>) => (
-        <Link href={`${params.value}`}>{`${params.value}`}</Link>
+        <Link href={`${params.value}`}>
+          {`${params.value}`}
+        </Link>
       )},
   ];
 

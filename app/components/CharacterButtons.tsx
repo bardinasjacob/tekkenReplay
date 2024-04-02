@@ -28,7 +28,7 @@ function CharacterButtons() {
     return (
       <FormControl fullWidth className=" bg-stone-600">
         <InputLabel id={"inputLabel" + buttonNum} className=" text-gray-50">
-          Character
+          Character {`${buttonNum}`}
         </InputLabel>
         <Select
           labelId={"labelId" + buttonNum}
