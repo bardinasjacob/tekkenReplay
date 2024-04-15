@@ -10,7 +10,7 @@ export default function SubmissionForm() {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title: 'React POST Request Example' })
+        body: JSON.stringify({ p1Name: 'player1' })
     };
     try{
       const response = await fetch('../api', requestOptions);
