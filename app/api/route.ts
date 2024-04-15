@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request){
     try{
+        console.log("Post method active")
         const body = await req.json()
         const matchData = body.formData
         await Match.create(matchData)

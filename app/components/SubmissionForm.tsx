@@ -2,17 +2,32 @@
 import { Button, Input, Stack } from "@mui/joy";
 import Table from "@mui/joy/Table/Table";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function SubmissionForm() {
+
+  async function postCheck() {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'React POST Request Example' })
+    };
+    try{
+      const response = await fetch('../api', requestOptions);
+      const data = await response.json();
+    }
+    catch(e){
+      console.log(e)
+    }
+}
+
   return (
     <>
       <form
         onSubmit={(event) => {
           event.preventDefault();
           const formData = new FormData(event.currentTarget);
-          const formJson = Object.fromEntries((formData as any).entries());
-          alert(JSON.stringify(formJson));
+          postCheck()
         }}
       >
         <Stack spacing={2} className="">
