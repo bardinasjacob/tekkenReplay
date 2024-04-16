@@ -23,10 +23,6 @@ export default function SubmissionForm() {
   const [youtubeLink, setYoutubeLink] = useState("");
   const [selectedValue, setSelectedValue] = useState("a");
 
-  //Setting default character so users can't submit an undefined string as a character
-  drops.drop1 = 'Kazuya'
-  drops.drop2 = 'Kazuya'
-
   var postResponse = '';
 
   function createButton(buttonNum: number) {
@@ -42,6 +38,7 @@ export default function SubmissionForm() {
           label="Character"
           name={`drop${buttonNum}`}
           onChange={handleChange}
+          defaultValue="Kazuya"
         >
           <MenuItem value={"Kazuya"}>Kazuya</MenuItem>
           <MenuItem value={"Jin"}>Jin</MenuItem>

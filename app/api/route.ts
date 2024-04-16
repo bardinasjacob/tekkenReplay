@@ -23,8 +23,10 @@ export async function GET(req: Request){
         const p2Char = params.get('p2Char');
         var matches
         if(p1Char && !p2Char){
-            matches = await Match.find({
-                p1Char
+            matches = await Match.find({$or: [
+                { p1Char: p1Char },
+                { p2Char: p1Char}
+            ]
             });
         }
         else{
