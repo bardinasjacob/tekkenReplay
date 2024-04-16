@@ -13,6 +13,10 @@ import React, { useEffect, useRef, useState } from "react";
 
 export default function SubmissionForm() {
   const [drops, setDrops] = useState<{ [key: string]: string }>({});
+  const [player1Name, setPlayer1Name] = useState('');
+  const [player2Name, setPlayer2Name] = useState('');
+  const [youtubeLink, setYoutubeLink] = useState('');
+  const [winner, setWinner] = useState('');
 
   var selected: string[] = [];
 
@@ -73,11 +77,17 @@ export default function SubmissionForm() {
     setDrops((prevDrops) => ({ ...prevDrops, [name]: value }));
   };
 
-  async function postCheck() {
+  async function handleSubmit() {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ p1Name: "player1" }),
+      body: JSON.stringify({ p1Name: player1Name,
+        p1Char: drops[0],
+        p2Name: player2Name,
+        p2Char: drops[1],
+        winner: winner,
+        youtubeLink: youtubeLink,
+      }),
     };
     try {
       const response = await fetch("../api", requestOptions);
@@ -92,8 +102,8 @@ export default function SubmissionForm() {
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          const formData = new FormData(event.currentTarget);
-          postCheck();
+          console.log(player1Name)
+          handleSubmit();
         }}
       >
         <Stack spacing={5}>
@@ -105,6 +115,7 @@ export default function SubmissionForm() {
                 "--Input-gap": "0px",
                 "--Input-radius": "2px",
               }}
+              onChange={(field): void => setPlayer1Name(field.target.value)}
             />
             {createButton(1)}
             <Input
@@ -124,6 +135,7 @@ export default function SubmissionForm() {
                 "--Input-gap": "0px",
                 "--Input-radius": "2px",
               }}
+              onChange={(field): void => setPlayer2Name(field.target.value)}
             />
             {createButton(2)}
             <Input
@@ -133,6 +145,15 @@ export default function SubmissionForm() {
                 "--Input-gap": "0px",
                 "--Input-radius": "0px",
               }}
+            />
+            <Input
+              placeholder="Youtube Link"
+              required
+              sx={{
+                "--Input-gap": "0px",
+                "--Input-radius": "0px",
+              }}
+              onChange={(field): void => setYoutubeLink(field.target.value)}
             />
           </div>
       </Stack>
