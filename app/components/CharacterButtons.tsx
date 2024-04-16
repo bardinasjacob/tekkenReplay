@@ -38,39 +38,39 @@ function CharacterButtons() {
           name={`drop${buttonNum}`}
           onChange={handleChange}
         >
-          <MenuItem value={undefined}>Any</MenuItem>
-          <MenuItem value={"Kazuya"}>Kazuya</MenuItem>
-          <MenuItem value={"Jin"}>Jin</MenuItem>
-          <MenuItem value={"King"}>King</MenuItem>
-          <MenuItem value={"Jun"}>Jun</MenuItem>
-          <MenuItem value={"Paul"}>Paul</MenuItem>
-          <MenuItem value={"Law"}>Law</MenuItem>
-          <MenuItem value={"Jack-8"}>Jack-8</MenuItem>
-          <MenuItem value={"Lars"}>Lars</MenuItem>
-          <MenuItem value={"Xiaoyu"}>Xiaoyu</MenuItem>
-          <MenuItem value={"Nina"}>Nina</MenuItem>
-          <MenuItem value={"Leroy"}>Leroy</MenuItem>
-          <MenuItem value={"Asuka"}>Asuka</MenuItem>
-          <MenuItem value={"Lili"}>Lili</MenuItem>
-          <MenuItem value={"Bryan"}>Bryan</MenuItem>
-          <MenuItem value={"Hwoarang"}>Hwoarang</MenuItem>
-          <MenuItem value={"Claudio"}>Claudio</MenuItem>
-          <MenuItem value={"Azucena"}>Azucena</MenuItem>
-          <MenuItem value={"Raven"}>Raven</MenuItem>
-          <MenuItem value={"Leo"}>Leo</MenuItem>
-          <MenuItem value={"Steve"}>Steve</MenuItem>
-          <MenuItem value={"Kuma"}>Kuma</MenuItem>
-          <MenuItem value={"Yoshimitsu"}>Yoshimitsu</MenuItem>
-          <MenuItem value={"Shaheen"}>Shaheen</MenuItem>
-          <MenuItem value={"Dragunov"}>Dragunov</MenuItem>
-          <MenuItem value={"Feng"}>Feng</MenuItem>
-          <MenuItem value={"Panda"}>Panda</MenuItem>
-          <MenuItem value={"Lee"}>Lee</MenuItem>
-          <MenuItem value={"Alisa"}>Alisa</MenuItem>
-          <MenuItem value={"Zafina"}>Zafina</MenuItem>
-          <MenuItem value={"Devil Jin"}>Devil Jin</MenuItem>
-          <MenuItem value={"Victor"}>Victor</MenuItem>
-          <MenuItem value={"Reina"}>Reina</MenuItem>
+          <MenuItem value={undefined} className=" text-lg">Any</MenuItem>
+          <MenuItem value={"Kazuya"} className=" text-lg">Kazuya</MenuItem>
+          <MenuItem value={"Jin"} className=" text-lg">Jin</MenuItem>
+          <MenuItem value={"King"} className=" text-lg">King</MenuItem>
+          <MenuItem value={"Jun"} className=" text-lg">Jun</MenuItem>
+          <MenuItem value={"Paul"} className=" text-lg">Paul</MenuItem>
+          <MenuItem value={"Law"} className=" text-lg">Law</MenuItem>
+          <MenuItem value={"Jack-8" } className=" text-lg">Jack-8</MenuItem>
+          <MenuItem value={"Lars"} className=" text-lg">Lars</MenuItem>
+          <MenuItem value={"Xiaoyu"} className=" text-lg">Xiaoyu</MenuItem>
+          <MenuItem value={"Nina"} className=" text-lg">Nina</MenuItem>
+          <MenuItem value={"Leroy"} className=" text-lg">Leroy</MenuItem>
+          <MenuItem value={"Asuka"} className=" text-lg">Asuka</MenuItem>
+          <MenuItem value={"Lili"} className=" text-lg">Lili</MenuItem>
+          <MenuItem value={"Bryan"} className=" text-lg">Bryan</MenuItem>
+          <MenuItem value={"Hwoarang"} className=" text-lg">Hwoarang</MenuItem>
+          <MenuItem value={"Claudio"} className=" text-lg">Claudio</MenuItem>
+          <MenuItem value={"Azucena"} className=" text-lg">Azucena</MenuItem>
+          <MenuItem value={"Raven"} className=" text-lg">Raven</MenuItem>
+          <MenuItem value={"Leo"} className=" text-lg">Leo</MenuItem>
+          <MenuItem value={"Steve"} className=" text-lg">Steve</MenuItem>
+          <MenuItem value={"Kuma"} className=" text-lg">Kuma</MenuItem>
+          <MenuItem value={"Yoshimitsu"} className=" text-lg">Yoshimitsu</MenuItem>
+          <MenuItem value={"Shaheen"} className=" text-lg">Shaheen</MenuItem>
+          <MenuItem value={"Dragunov"} className=" text-lg">Dragunov</MenuItem>
+          <MenuItem value={"Feng"} className=" text-lg">Feng</MenuItem>
+          <MenuItem value={"Panda" } className=" text-lg">Panda</MenuItem>
+          <MenuItem value={"Lee"} className=" text-lg">Lee</MenuItem>
+          <MenuItem value={"Alisa"} className=" text-lg">Alisa</MenuItem>
+          <MenuItem value={"Zafina"} className=" text-lg">Zafina</MenuItem>
+          <MenuItem value={"Devil Jin"} className=" text-lg">Devil Jin</MenuItem>
+          <MenuItem value={"Victor"} className=" text-lg">Victor</MenuItem>
+          <MenuItem value={"Reina"} className=" text-lg">Reina</MenuItem>
         </Select>
       </FormControl>
     );

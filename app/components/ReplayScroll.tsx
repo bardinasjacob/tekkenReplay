@@ -66,6 +66,7 @@ function ReplayScroll(props: { charArray: string[] }) {
           },
         }}
         pageSizeOptions={[5]}
+        className=" text-xl"
       />
       </p>
     </>
