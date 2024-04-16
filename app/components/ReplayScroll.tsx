@@ -5,10 +5,9 @@ import useSWR, { Fetcher } from "swr";
 
 function ReplayScroll(props: { charArray: string[] }) {
 
-
+  //Changing length of query string depending if any is selected
   if(props.charArray[0] != undefined && props.charArray[1] == undefined){
     var queryString = '?p1Char=' + props.charArray[0]
-    console.log(queryString)
   }
   else if(props.charArray[0] == undefined && props.charArray[1] != undefined){
     var queryString = '?p1Char=' + props.charArray[1]
