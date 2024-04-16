@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <main className="w-full">
-      <div className="m-auto w-1/2 space-y-28 mt-9">
+      <div className="m-auto w-3/4 space-y-28 mt-9">
         <Navigation/>
         <CharacterButtons/>
       </div>

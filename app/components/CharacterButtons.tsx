@@ -38,6 +38,7 @@ function CharacterButtons() {
           name={`drop${buttonNum}`}
           onChange={handleChange}
         >
+          <MenuItem value={undefined}>Any</MenuItem>
           <MenuItem value={"Kazuya"}>Kazuya</MenuItem>
           <MenuItem value={"Jin"}>Jin</MenuItem>
           <MenuItem value={"King"}>King</MenuItem>

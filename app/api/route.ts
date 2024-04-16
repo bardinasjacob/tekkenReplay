@@ -4,7 +4,8 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request){
     try{
         const body = await req.json()
-        const matchData = body.formData
+        const matchData = body
+        console.log(matchData)
         await Match.create(matchData)
         return NextResponse.json({message: "Match created"}, {status: 201})
     }
@@ -20,13 +21,22 @@ export async function GET(req: Request){
         const params = new URLSearchParams(url.searchParams)
         const p1Char = params.get('p1Char');
         const p2Char = params.get('p2Char');
-        const matches = await Match.find({
-            $or: [
-                { p1Char: p1Char, p2Char: p2Char },
-                { p1Char: p2Char, p2Char: p1Char },
+        var matches
+        if(p1Char && !p2Char){
+            matches = await Match.find({$or: [
+                { p1Char: p1Char },
+                { p2Char: p1Char}
             ]
-        });
-        console.log(p2Char)
+            });
+        }
+        else{
+            matches = await Match.find({
+                $or: [
+                    { p1Char: p1Char, p2Char: p2Char },
+                    { p1Char: p2Char, p2Char: p1Char },
+                ]
+            });
+        }
         return NextResponse.json({ matches }, {status: 200})
     }
     catch(error){

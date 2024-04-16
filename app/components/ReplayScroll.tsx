@@ -5,8 +5,16 @@ import useSWR, { Fetcher } from "swr";
 
 function ReplayScroll(props: { charArray: string[] }) {
 
-
-  const queryString = '?p1Char=' + props.charArray[0] + '&p2Char=' + props.charArray[1]
+  //Changing length of query string depending if any is selected
+  if(props.charArray[0] != undefined && props.charArray[1] == undefined){
+    var queryString = '?p1Char=' + props.charArray[0]
+  }
+  else if(props.charArray[0] == undefined && props.charArray[1] != undefined){
+    var queryString = '?p1Char=' + props.charArray[1]
+  }
+  else{
+    var queryString = '?p1Char=' + props.charArray[0] + '&p2Char=' + props.charArray[1]
+  }
 
   function fetcher(url: string){
     return fetch('../api' + queryString).then(res => res.json())
@@ -29,7 +37,7 @@ function ReplayScroll(props: { charArray: string[] }) {
     { field: 'p1Char', headerName: 'Player 1 Char', width: 200 },
     { field: 'p2Name', headerName: 'Player 2 Name', width: 200 },
     { field: 'p2Char', headerName: 'Player 2 Char', width: 200 },
-    { field: 'winner', headerName: 'Winning Character', width: 200 },
+    { field: 'winner', headerName: 'Winner', width: 200 },
     { field: 'youtubeLink', headerName: 'Video Link', width: 600, 
       renderCell: (params: GridRenderCellParams<any, String>) => (
         <Link href={`${params.value}`}>

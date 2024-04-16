@@ -14,7 +14,6 @@ mongoose.Promise = global.Promise;
 
 
 const matchSchema = new Schema({
-    _id: ObjectId,
     p1Name: String,
     p1Char: String,
     p2Name: String,
