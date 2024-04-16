@@ -6,7 +6,16 @@ import useSWR, { Fetcher } from "swr";
 function ReplayScroll(props: { charArray: string[] }) {
 
 
-  const queryString = '?p1Char=' + props.charArray[0] + '&p2Char=' + props.charArray[1]
+  if(props.charArray[0] != undefined && props.charArray[1] == undefined){
+    var queryString = '?p1Char=' + props.charArray[0]
+    console.log(queryString)
+  }
+  else if(props.charArray[0] == undefined && props.charArray[1] != undefined){
+    var queryString = '?p1Char=' + props.charArray[1]
+  }
+  else{
+    var queryString = '?p1Char=' + props.charArray[0] + '&p2Char=' + props.charArray[1]
+  }
 
   function fetcher(url: string){
     return fetch('../api' + queryString).then(res => res.json())
