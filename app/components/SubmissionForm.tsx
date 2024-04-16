@@ -82,9 +82,9 @@ export default function SubmissionForm() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ p1Name: player1Name,
-        p1Char: drops[0],
+        p1Char: drops.drop1,
         p2Name: player2Name,
-        p2Char: drops[1],
+        p2Char: drops.drop2,
         winner: winner,
         youtubeLink: youtubeLink,
       }),
@@ -99,66 +99,58 @@ export default function SubmissionForm() {
 
   return (
     <>
+      <div className=" py-16">
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          console.log(player1Name)
           handleSubmit();
         }}
       >
-        <Stack spacing={5}>
+        <Stack spacing={10}>
           <div className="flex">
             <Input
               placeholder="Player 1 Name"
               required
               sx={{
-                "--Input-gap": "0px",
-                "--Input-radius": "2px",
+                "--Input-gap": "5px",
+                "--Input-radius": "5px",
+                width: "150%"
               }}
               onChange={(field): void => setPlayer1Name(field.target.value)}
             />
             {createButton(1)}
-            <Input
-              placeholder="ADD RADIAL BUTTONS HERE (P1 WIN)"
-              required
-              sx={{
-                "--Input-gap": "0px",
-                "--Input-radius": "2px",
-              }}
-            />
+    
           </div>
           <div className="flex">
             <Input
               placeholder="Player 2 Name"
               required
               sx={{
-                "--Input-gap": "0px",
-                "--Input-radius": "2px",
+                "--Input-gap": "5px",
+                "--Input-radius": "5px",
+                width: "150%"
               }}
               onChange={(field): void => setPlayer2Name(field.target.value)}
             />
             {createButton(2)}
-            <Input
-              placeholder="ADD RADIAL BUTTONS HERE (P2 WIN)"
-              required
-              sx={{
-                "--Input-gap": "0px",
-                "--Input-radius": "0px",
-              }}
-            />
-            <Input
+
+          </div>
+          <Input
               placeholder="Youtube Link"
               required
               sx={{
-                "--Input-gap": "0px",
-                "--Input-radius": "0px",
+                "--Input-gap": "5px",
+                "--Input-radius": "5px",
+                height: 45
               }}
               onChange={(field): void => setYoutubeLink(field.target.value)}
             />
-          </div>
       </Stack>
-      <Button type="submit">Submit</Button>
+      <div className="my-20 w-full flex justify-center">
+        <Button type="submit" className=" py-6 px-24">Submit</Button>
+      </div>
       </form>
+      </div>
     </>
   );
 }

@@ -11,7 +11,9 @@ export default function Submit() {
     <main className="w-full">
       <div className="m-auto w-1/2 space-y-10 mt-9">
         <Navigation />
+        <div className=" w-full py-5 bg-slate-500"/>
         <SubmissionForm/>
+        <div className=" w-full py-5 bg-slate-500"/>
       </div>
     </main>
   );
