@@ -23,7 +23,11 @@ export default function SubmissionForm() {
   const [youtubeLink, setYoutubeLink] = useState("");
   const [selectedValue, setSelectedValue] = useState("a");
 
-  var selected: string[] = [];
+  //Setting default character so users can't submit an undefined string as a character
+  drops.drop1 = 'Kazuya'
+  drops.drop2 = 'Kazuya'
+
+  var postResponse = '';
 
   function createButton(buttonNum: number) {
     return (
@@ -84,6 +88,7 @@ export default function SubmissionForm() {
 
   async function handleSubmit() {
     var winner = "-1"
+    //Finding who the winner of the match was using the radial buttons
     if(selectedValue  == "a"){
       winner = player1Name
     }
@@ -106,6 +111,8 @@ export default function SubmissionForm() {
     try {
       const response = await fetch("../api", requestOptions);
       const data = await response.json();
+      postResponse = data.message
+      alert(postResponse)
     } catch (e) {
       console.log(e);
     }
