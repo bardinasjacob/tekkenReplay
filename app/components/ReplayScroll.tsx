@@ -4,8 +4,14 @@ import React, { useEffect, useRef, useState } from "react";
 import useSWR, { Fetcher } from "swr";
 
 function ReplayScroll(props: { charArray: string[] }) {
-  const [videoPlayerLink, setLink] = useState();
+  const [videoPlayerLink, setLink] = useState("");
   console.log(videoPlayerLink)
+
+  //Changing youtube link to embed link
+  function handleSelect(link: String){
+    let usableLink = link.replace("watch?v=", "embed/").split("&pp")[0]
+    setLink(usableLink)
+  }
 
   //Changing length of query string depending if any is selected
   if(props.charArray[0] != undefined && props.charArray[1] == undefined){
@@ -60,8 +66,8 @@ function ReplayScroll(props: { charArray: string[] }) {
         getRowId={getRowId}
         rows={matches}
         columns={columns}
-        onRowClick={(row) => {
-          setLink(row.row.youtubeLink)
+        onRowClick={(selected) => {
+          handleSelect(selected.row.youtubeLink)
         }}
         initialState={{
           pagination: {
