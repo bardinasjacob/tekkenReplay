@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 import useSWR, { Fetcher } from "swr";
 
 function ReplayScroll(props: { charArray: string[] }) {
+  const [videoPlayerLink, setLink] = useState();
+  console.log(videoPlayerLink)
 
   //Changing length of query string depending if any is selected
   if(props.charArray[0] != undefined && props.charArray[1] == undefined){
@@ -58,15 +60,23 @@ function ReplayScroll(props: { charArray: string[] }) {
         getRowId={getRowId}
         rows={matches}
         columns={columns}
+        onRowClick={(row) => {
+          setLink(row.row.youtubeLink)
+        }}
         initialState={{
           pagination: {
             paginationModel: {
               pageSize: 5,
             },
           },
-        }}
+        }
+        }
         pageSizeOptions={[5]}
         className=" text-xl"
+      />
+      <iframe
+      src={videoPlayerLink}
+      allowFullScreen
       />
       </p>
     </>
