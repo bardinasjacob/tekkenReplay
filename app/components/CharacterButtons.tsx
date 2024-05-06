@@ -102,9 +102,9 @@ function CharacterButtons() {
           </Stack>
         </div>
       </div>
-      <div>
+      
         <ReplayScroll charArray={selected} />
-      </div>
+      
     </>
   );
 }

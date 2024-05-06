@@ -5,13 +5,15 @@ import useSWR, { Fetcher } from "swr";
 
 function ReplayScroll(props: { charArray: string[] }) {
   const [videoPlayerLink, setLink] = useState("");
+  const playerVisible = useRef(false);
   console.log(videoPlayerLink);
-  let vidLink = "";
+  console.log(playerVisible)
 
   //Changing youtube link to embed link
   function handleSelect(link: String) {
     let usableLink = link.replace("watch?v=", "embed/").split("&pp")[0];
     setLink(usableLink);
+    playerVisible.current = true;
   }
 
   //Changing length of query string depending if any is selected
@@ -62,8 +64,9 @@ function ReplayScroll(props: { charArray: string[] }) {
 
   return (
     <>
-        <div className="flex w-full">
-          <p className=" bg-white h-80" style={{}}>
+      <div className="flex flex-wrap w-full">
+        <div className=" w-full">
+          <p className=" bg-white h-80">
             <DataGrid
               getRowId={getRowId}
               rows={matches}
@@ -82,8 +85,14 @@ function ReplayScroll(props: { charArray: string[] }) {
               className=" text-xl"
             />
           </p>
-          <iframe className=" w-1/3" src={videoPlayerLink} allowFullScreen/>
         </div>
+        <div className="w-full flex justify-center">
+          <iframe src={videoPlayerLink} className="w-1/2 absolute" style={{
+            height: playerVisible.current ? "75%" : "0",
+            padding: playerVisible.current ? "30px" : "0"
+          }} allowFullScreen />
+        </div>
+      </div>
     </>
   );
 }
