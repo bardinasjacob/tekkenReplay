@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import CharacterButtons from "./components/CharacterButtons";
 import Navigation from "./components/Navigation";
 import ReplayScroll from "./components/ReplayScroll";
-
+import { Abel, Inter, Lato, Oswald, Roboto } from "next/font/google";
 
 
 export default function Home() {

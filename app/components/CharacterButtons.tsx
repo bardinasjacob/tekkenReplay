@@ -4,6 +4,7 @@ import Button from "@mui/joy/Button";
 import React, { useRef, useState } from "react";
 import ReplayScroll from "./ReplayScroll";
 import {
+  Divider,
   FormControl,
   InputLabel,
   MenuItem,
@@ -11,6 +12,7 @@ import {
   SelectChangeEvent,
   Stack,
 } from "@mui/material";
+import { Lato } from "next/font/google";
 
 function CharacterButtons() {
   const [drops, setDrops] = useState<{ [key: string]: string }>({});
@@ -26,7 +28,7 @@ function CharacterButtons() {
   //Creating the dropdown menus for the characters
   function createButton(buttonNum: number) {
     return (
-      <FormControl fullWidth className=" bg-stone-600">
+      <FormControl fullWidth className=" bg-stone-600" >
         <InputLabel id={"inputLabel" + buttonNum} className=" text-gray-50">
           Character {`${buttonNum}`}
         </InputLabel>
@@ -37,9 +39,10 @@ function CharacterButtons() {
           label="Character"
           name={`drop${buttonNum}`}
           onChange={handleChange}
+          className="text-gray-50"
         >
           <MenuItem value={undefined} className=" text-lg">Any</MenuItem>
-          <MenuItem value={"Kazuya"} className=" text-lg">Kazuya</MenuItem>
+          <MenuItem value={"Kazuya"} className="text-lg">Kazuya</MenuItem>
           <MenuItem value={"Jin"} className=" text-lg">Jin</MenuItem>
           <MenuItem value={"King"} className=" text-lg">King</MenuItem>
           <MenuItem value={"Jun"} className=" text-lg">Jun</MenuItem>
@@ -102,9 +105,7 @@ function CharacterButtons() {
           </Stack>
         </div>
       </div>
-      
-        <ReplayScroll charArray={selected} />
-      
+      <ReplayScroll charArray={selected} />
     </>
   );
 }

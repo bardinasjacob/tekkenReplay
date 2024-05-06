@@ -1,3 +1,4 @@
+import { Divider } from "@mui/material";
 import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import Link from "next/link";
 import React, { useContext, useEffect, useRef, useState } from "react";
@@ -6,8 +7,6 @@ import useSWR, { Fetcher } from "swr";
 function ReplayScroll(props: { charArray: string[] }) {
   const [videoPlayerLink, setLink] = useState("");
   const playerVisible = useRef(false);
-  console.log(videoPlayerLink);
-  console.log(playerVisible)
 
   //Changing youtube link to embed link
   function handleSelect(link: String) {
@@ -65,6 +64,7 @@ function ReplayScroll(props: { charArray: string[] }) {
   return (
     <>
       <div className="flex flex-wrap w-full">
+        <div className=" w-full bg-stone-600 py-4 mb-4" />
         <div className=" w-full">
           <p className=" bg-white h-80">
             <DataGrid
@@ -86,11 +86,17 @@ function ReplayScroll(props: { charArray: string[] }) {
             />
           </p>
         </div>
+        <div className=" w-full bg-stone-600 py-4 mt-4"/>
         <div className="w-full flex justify-center">
-          <iframe src={videoPlayerLink} className="w-1/2 absolute" style={{
-            height: playerVisible.current ? "75%" : "0",
-            padding: playerVisible.current ? "30px" : "0"
-          }} allowFullScreen />
+          <iframe
+            src={videoPlayerLink}
+            className="w-1/2 absolute"
+            style={{
+              height: playerVisible.current ? "75%" : "0",
+              padding: playerVisible.current ? "30px" : "0",
+            }}
+            allowFullScreen
+          />
         </div>
       </div>
     </>
